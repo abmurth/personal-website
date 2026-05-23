@@ -20,7 +20,24 @@ type ProfileSection = {
 };
 
 export default function Home() {
-  const links = ["Instagram", "LinkedIn", "Resume", "Email"];
+  const links = [
+    {
+      href: "https://www.linkedin.com/in/abhay-murthy",
+      label: "LinkedIn",
+    },
+    {
+      href: "/AbhayMurthy_ResearchResume.pdf",
+      label: "Resume",
+    },
+    {
+      href: "https://www.instagram.com/abhaymuurthy",
+      label: "Instagram",
+    },
+    {
+      href: "mailto:abhaymurthy1@gmail.com",
+      label: "Email",
+    },
+  ];
 
   const profileSections: ProfileSection[] = [
     {
@@ -90,7 +107,7 @@ export default function Home() {
       items: [
         {
           date: "2026",
-          role: "International finalist and top presenter in the MathWorks Math Modeling Challenge.",
+          role: "Top 6 out of 770. $5500 prize.",
           title: "Jane Street M3C International Finalist & Top Presenter",
         },
         {
@@ -105,8 +122,8 @@ export default function Home() {
         },
         {
           date: "2025",
-          role: "Authored and advocated Texas State Bill 203 with Senator Jose Menendez.",
-          title: "Authoring Texas State Bill 203",
+          role: "In collaboration with Texas Senator Jose Menendez",
+          title: "Authored Texas State Bill 203",
         },
       ],
     },
@@ -117,8 +134,14 @@ export default function Home() {
       <header className="site-header fixed inset-x-0 top-0 z-50 px-4 py-5 sm:px-8 lg:px-16">
         <nav aria-label="Social links" className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
           {links.map((link) => (
-            <a key={link} href="#" className="top-link group">
-              <span>{link}</span>
+            <a
+              key={link.label}
+              href={link.href}
+              className="top-link group"
+              target={link.href.startsWith("http") || link.href.endsWith(".pdf") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") || link.href.endsWith(".pdf") ? "noreferrer" : undefined}
+            >
+              <span>{link.label}</span>
               <span aria-hidden="true" className="top-link-arrow">
                 {"\u2197"}
               </span>
@@ -169,11 +192,11 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <span className="intro-chip">Bioengineering</span>
-                <span className="intro-chip">Business</span>
-                <span className="intro-chip">Neurotech</span>
-              </div>
+              <nav aria-label="Profile sections" className="intro-links mt-8">
+                <a href="#experience" className="intro-link">Experience</a>
+                <a href="#education" className="intro-link">Education</a>
+                <a href="#awards" className="intro-link">Awards</a>
+              </nav>
             </div>
 
           </div>
@@ -185,7 +208,7 @@ export default function Home() {
 
         <div className="profile-card-stack mt-12">
           {profileSections.map((section) => (
-            <div className="project-card-outline" key={section.title}>
+            <div className="project-card-outline" id={section.title.toLowerCase()} key={section.title}>
               <div className="project-glare project-glare-outer" />
               <article className={`project-card project-card-${section.tone}`}>
                 <div className="project-glare project-glare-inner" />
