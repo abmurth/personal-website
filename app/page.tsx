@@ -60,7 +60,7 @@ export default function Home() {
           date: "Jun 2025 - Aug 2025",
           logo: "BU",
           logoSrc: "/bu-logo.jpg",
-          role: "Research Intern",
+          role: "Research Intern (RISE)",
           title: "Boston University",
         },
         {
