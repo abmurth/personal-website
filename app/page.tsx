@@ -150,7 +150,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="mx-auto flex min-h-[calc(100vh-5rem)] w-full max-w-[860px] flex-col justify-start gap-12 pt-15">
+      <section className="profile-shell mx-auto flex min-h-[calc(100vh-5rem)] w-full flex-col justify-start gap-12 pt-15">
         <div className="browser-hero relative w-full overflow-hidden bg-[#171717]">
           <div className="browser-chrome relative flex h-10 items-center justify-between px-5">
             <div className="flex items-center gap-2.5">

@@ -231,6 +231,10 @@ body {
   mask-image: linear-gradient(180deg, #000 0%, #000 80%, transparent 100%);
 }
 
+.profile-shell {
+  max-width: min(100%, 860px);
+}
+
 .browser-hero::before {
   position: absolute;
   inset: 0 0 auto;
@@ -783,5 +787,11 @@ body {
 
   .experience-tile p {
     padding-left: 20px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .profile-shell {
+    max-width: min(calc(100vw - 12rem), 1120px);
   }
 }
